@@ -39,5 +39,12 @@ public class ClienteDAO {
 		this.em.getTransaction().commit();
 		this.em.close();
 	}
+	
+	public void alteraCliente(Cliente cliente) {
+		this.em.getTransaction().begin();
+		this.em.merge(cliente);
+		this.em.getTransaction().commit();
+		this.em.close();
+	}
 
 }

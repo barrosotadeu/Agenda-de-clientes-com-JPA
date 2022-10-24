@@ -29,7 +29,7 @@
 				<td>${cliente.cpf}</td>
 				<td>${cliente.telefone}</td>
 				<td>${cliente.email}</td>
-				<td><a href="#" class="botao botao-editar">editar</a><a  href="entrada?acao=DeletaCliente&id=${cliente.id}" class="botao botao-deletar">deletar</a></td>
+				<td><a href="entrada?acao=MostraCliente&id=${cliente.id}" class="botao botao-editar">editar</a><a  href="entrada?acao=DeletaCliente&id=${cliente.id}" class="botao botao-deletar">deletar</a></td>
 				
 			</tr>
 		</c:forEach>
