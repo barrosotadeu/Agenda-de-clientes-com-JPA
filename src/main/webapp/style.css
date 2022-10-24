@@ -20,3 +20,20 @@ td{
 	padding: 8px;
 }
 
+.botao {
+	padding: 5px;
+	margin: 0 2px 0 2px;
+	text-decoration: none;
+}
+
+.botao-deletar {
+	background-color: #dd0000;
+	border-radius: 5px;
+	color: #eeeeee;
+}
+
+.botao-editar {
+	background-color: #00dd99;
+	border-radius: 5px;
+	color: #eeeeee;
+}

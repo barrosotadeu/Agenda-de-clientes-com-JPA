@@ -28,5 +28,16 @@ public class ClienteDAO {
 		TypedQuery tp = this.em.createQuery(jpql, Cliente.class);
 		return tp.getResultList();
 	}
+	
+	public Cliente buscaClientePorId(Integer id) {
+		return this.em.find(Cliente.class, id);
+	}
+	
+	public void deletaCliente(Cliente cliente) {
+		this.em.getTransaction().begin();
+		this.em.remove(cliente);
+		this.em.getTransaction().commit();
+		this.em.close();
+	}
 
 }
