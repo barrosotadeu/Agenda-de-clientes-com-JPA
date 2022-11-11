@@ -29,6 +29,16 @@ public class ClienteDAO {
 		return tp.getResultList();
 	}
 	
+	public List<Cliente> listaClientesEmOrdemCrescente(){
+		String jpql = "SELECT c FROM Cliente c ORDER BY c.nome";
+		return this.em.createQuery(jpql, Cliente.class).getResultList();
+	}
+	
+	public List<Cliente> listaClientesEmOrdemDecrescente(){
+		String jpql = "SELECT c FROM Cliente c ORDER BY c.nome DESC";
+		return this.em.createQuery(jpql, Cliente.class).getResultList();
+	}
+	
 	public Cliente buscaClientePorId(Integer id) {
 		return this.em.find(Cliente.class, id);
 	}

@@ -4,6 +4,7 @@
 table{
 	border: 2px solid #333;
 	border-collapse: collapse;
+	margin-bottom: 10px;
 }
 
 
@@ -26,6 +27,13 @@ td{
 	text-decoration: none;
 }
 
+.botao-cadastrar {
+	background-color: #0000dd;
+	border-radius: 5px;
+	color: #eeeeee;
+	margin: 20px 0 0 0;
+}
+
 .botao-deletar {
 	background-color: #dd0000;
 	border-radius: 5px;
@@ -34,6 +42,12 @@ td{
 
 .botao-editar {
 	background-color: #00dd99;
+	border-radius: 5px;
+	color: #eeeeee;
+}
+
+.botao-ordenacao {
+	background-color: #554400;
 	border-radius: 5px;
 	color: #eeeeee;
 }

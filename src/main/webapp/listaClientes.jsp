@@ -35,6 +35,10 @@
 		</c:forEach>
 		</tbody>
 	</table>
-
+	
+	<a href="entrada?acao=NovoCliente" class="botao botao-cadastrar">Novo</a>
+	<a href="entrada?acao=OrdenacaoCrescente" class="botao botao-ordenacao">Ordem crescente</a>
+	<a href="entrada?acao=OrdenacaoDecrescente" class="botao botao-ordenacao">Ordem decrescente</a>
+	
 </body>
 </html>
