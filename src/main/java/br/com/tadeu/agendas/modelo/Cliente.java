@@ -1,9 +1,14 @@
 package br.com.tadeu.agendas.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +21,9 @@ public class Cliente {
 	private String cpf;
 	private String telefone;
 	private String email;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Venda> vendas = new ArrayList<Venda>();
 	
 	
 	public Cliente() {
@@ -59,6 +67,13 @@ public class Cliente {
 		this.email = email;
 	}
 	
+	public void adicionaVenda(Venda venda) {
+		this.vendas.add(venda);
+	}
+	
+	public List<Venda> getVendas() {
+		return vendas;
+	}
 	
 	
 	
