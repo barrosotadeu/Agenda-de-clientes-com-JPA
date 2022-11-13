@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,6 +25,7 @@ public class Venda {
 	@Column(name = "data_venda")
 	private LocalDate dataVenda = LocalDate.now();
 	@ManyToOne
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
 	

@@ -17,6 +17,8 @@
 			<li>${venda}</li>
 		</c:forEach>
 	</ul>
+	
+	<p>Total de vendas do cliente: <c:out value="${valorTotal}"></c:out> </p>
 
 </body>
 </html>
