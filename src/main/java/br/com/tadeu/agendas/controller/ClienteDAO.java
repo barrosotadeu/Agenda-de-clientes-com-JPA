@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.com.tadeu.agendas.dto.ContatosDoClienteDTO;
 import br.com.tadeu.agendas.modelo.Cliente;
 
 public class ClienteDAO {
@@ -55,6 +56,17 @@ public class ClienteDAO {
 		this.em.merge(cliente);
 		this.em.getTransaction().commit();
 		this.em.close();
+	}
+	
+	public List<Object[]> mostraTotalDeVendasPorCliente(){
+		String jpql = "SELECT c.nome, sum(v.valor) FROM Venda v right join v.cliente c group by c.id";
+		TypedQuery<Object[]> tp = this.em.createQuery(jpql, Object[].class);
+		return tp.getResultList();
+	}
+	
+	public List<ContatosDoClienteDTO> mostraClientesEContatos() {
+		String jpql = "SELECT NEW br.com.tadeu.agendas.dto.ContatosDoClienteDTO(id, nome, telefone, email) FROM Cliente";
+		return this.em.createQuery(jpql, ContatosDoClienteDTO.class).getResultList();
 	}
 
 }

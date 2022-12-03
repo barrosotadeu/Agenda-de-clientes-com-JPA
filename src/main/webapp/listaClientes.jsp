@@ -19,7 +19,7 @@
 				<th>CPF</th>
 				<th>Telefone</th>
 				<th>email</th>	
-				<th>Opções</th>			
+				<th colspan="4">Opções</th>			
 			</tr>			
 		</thead>
 		<tbody>
@@ -31,6 +31,7 @@
 				<td>${cliente.email}</td>
 				<td><a class = "link-vendas" href="entrada?acao=ListaVendas&id=${cliente.id}">listar vendas</a>
 				<td><a class="link-vendas" href="entrada?acao=NovaVenda&id=${cliente.id}">registrar venda</a>
+				<td><a class="link-vendas" href="entrada?acao=ListaRelatorios">relatorios</a></td>
 				<td><a  href="entrada?acao=MostraCliente&id=${cliente.id}" class="botao botao-editar">editar</a><a  href="entrada?acao=DeletaCliente&id=${cliente.id}" class="botao botao-deletar">deletar</a></td>
 				
 			</tr>
