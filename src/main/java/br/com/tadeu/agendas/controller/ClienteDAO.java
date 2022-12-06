@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import br.com.tadeu.agendas.dto.ContatosDoClienteDTO;
 import br.com.tadeu.agendas.modelo.Cliente;
@@ -31,13 +34,30 @@ public class ClienteDAO {
 	}
 	
 	public List<Cliente> listaClientesEmOrdemCrescente(){
-		String jpql = "SELECT c FROM Cliente c ORDER BY c.nome";
-		return this.em.createQuery(jpql, Cliente.class).getResultList();
+		
+		CriteriaBuilder cb = this.em.getCriteriaBuilder();
+		CriteriaQuery<Cliente> cQuery = cb.createQuery(Cliente.class);
+		Root<Cliente> root = cQuery.from(Cliente.class);
+		cQuery.orderBy(cb.asc(root.get("nome")));
+		
+		return this.em.createQuery(cQuery).getResultList();
+		
+//		String jpql = "SELECT c FROM Cliente c ORDER BY c.nome";
+//		return this.em.createQuery(jpql, Cliente.class).getResultList();
 	}
 	
 	public List<Cliente> listaClientesEmOrdemDecrescente(){
-		String jpql = "SELECT c FROM Cliente c ORDER BY c.nome DESC";
-		return this.em.createQuery(jpql, Cliente.class).getResultList();
+		
+		CriteriaBuilder cb = this.em.getCriteriaBuilder();
+		CriteriaQuery<Cliente> cQuery = cb.createQuery(Cliente.class);
+		Root<Cliente> root = cQuery.from(Cliente.class);
+		
+		cQuery.select(root);
+		cQuery.orderBy(cb.desc(root.get("nome")));
+		
+		return this.em.createQuery(cQuery).getResultList();
+//		String jpql = "SELECT c FROM Cliente c ORDER BY c.nome DESC";
+//		return this.em.createQuery(jpql, Cliente.class).getResultList();
 	}
 	
 	public Cliente buscaClientePorId(Integer id) {
